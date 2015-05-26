@@ -1,4 +1,4 @@
 class Fabric < ActiveRecord::Base
-	has_many :usersfabrics
-	has_many :users, through: :usersfabrics 
+	has_many :fabricstores
+	has_many :users, :through => :fabricstores
 end

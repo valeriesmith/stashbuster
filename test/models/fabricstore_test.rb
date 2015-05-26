@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersPatternTest < ActiveSupport::TestCase
+class FabricstoreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

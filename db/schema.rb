@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509155858) do
+ActiveRecord::Schema.define(version: 20150512011741) do
 
   create_table "fabrics", force: :cascade do |t|
     t.string   "name"
@@ -24,11 +24,25 @@ ActiveRecord::Schema.define(version: 20150509155858) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fabricstores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fabric_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "patterns", force: :cascade do |t|
     t.string   "company"
     t.string   "category"
     t.string   "size"
     t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patternstores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pattern_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,20 +65,6 @@ ActiveRecord::Schema.define(version: 20150509155858) do
     t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_fabrics", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "fabrics_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users_patterns", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "patterns_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
 end
