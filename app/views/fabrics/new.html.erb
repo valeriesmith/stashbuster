@@ -1,0 +1,47 @@
+<h1>New Fabric Upload</h1>
+
+<%= form_for :fabric, url: fabrics_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+  </p>
+
+  <p>
+    <%= f.label :width %><br>
+    <%= f.text_field :width %>
+  </p>
+
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p>
+<% anus = Fabric.first.name %>
+<% fabric_name = anus + '.jpg' %>
+<%= fabric_name %><br>
+
+<%=image_tag(fabric_name, alt: anus)%>
+</p>
+
+
