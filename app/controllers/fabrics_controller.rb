@@ -4,7 +4,6 @@ class FabricsController < ApplicationController
 
 	def create
 		@fabric = Fabric.new(fabric_params)
-
 		@fabric.save
 		redirect_to @fabric
 	end

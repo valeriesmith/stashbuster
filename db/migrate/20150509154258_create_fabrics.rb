@@ -7,9 +7,9 @@ class CreateFabrics < ActiveRecord::Migration
       t.integer :width
       t.integer :price
       t.string :content
+      t.string :swatch, :default => nil
       t.string :source
-      t.binary :swatch, :default => nil
-
+     
       t.timestamps null: false
     end
   end
