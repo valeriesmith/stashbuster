@@ -1,6 +1,6 @@
 <h1>New Fabric Upload</h1>
 
-<%= form_for :fabric, url: fabrics_path do |f| %>
+<%= form_for :fabric, :html => {:multipart => true}, url: fabrics_path do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -35,18 +35,16 @@
     <%= f.label :source %><br>
     <%= f.text_field :source %>
   </p>
+
+  <p>
+    <%= f.file_field :swatch %>
+  </p>
  
   <p>
     <%= f.submit %>
   </p>
 <% end %>
 
-<p>
-<% anus = Fabric.first.name %>
-<% fabric_name = anus + '.jpg' %>
-<%= fabric_name %><br>
 
-<%=image_tag(fabric_name, alt: anus)%>
-</p>
 
 
