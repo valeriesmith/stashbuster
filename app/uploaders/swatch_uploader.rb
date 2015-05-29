@@ -2,6 +2,11 @@
 
 class SwatchUploader < CarrierWave::Uploader::Base
 
+  # set allowed file types
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

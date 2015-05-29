@@ -3,9 +3,14 @@ class FabricsController < ApplicationController
 	end
 
 	def create
+		@errors = nil
 		@fabric = Fabric.new(fabric_params)
-		@fabric.save
-		redirect_to @fabric
+		if @fabric.save
+			redirect_to @fabric
+		else
+			@errors = @fabric.errors
+			render "new"		
+		end
 	end
 
 	def show

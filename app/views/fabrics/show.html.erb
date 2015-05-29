@@ -21,7 +21,11 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @fabric.price %>
+  <% if @fabric.price != nil %>
+    <%= @fabric.price %>
+  <% else %> 
+    no price given
+  <% end %>
 </p>
 
 <p>
