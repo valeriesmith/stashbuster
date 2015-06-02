@@ -1,3 +1,5 @@
+require 'file_size_validator'
+
 class Fabric < ActiveRecord::Base
 	has_many :fabricstores
 	has_many :users, :through => :fabricstores
@@ -9,6 +11,7 @@ class Fabric < ActiveRecord::Base
 	validates :length, presence: true, numericality: true
 	validates :width, presence: true, numericality: true
 
-	# def error_messages
-	# end
+	validates :swatch, file_size: {maximum: 0.5.megabytes.to_i}
+
+
 end
