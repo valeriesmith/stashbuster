@@ -22,7 +22,7 @@
 <p>
   <strong>Price:</strong>
   <% if @fabric.price != nil %>
-    <%= @fabric.price %>
+    $<%= @fabric.price %>
   <% else %> 
     no price given
   <% end %>
@@ -39,7 +39,11 @@
 </p>
 
 <p>
-<%= image_tag @fabric.swatch_url.to_s %>
+<% if @fabric.swatch != nil %>
+    <%= image_tag @fabric.swatch_url.to_s %>
+  <% else %> 
+    <%= image_tag("default_swatch.jpg", alt: "default") %>
+    <% end %>
 </p>
 
 
