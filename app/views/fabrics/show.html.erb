@@ -11,7 +11,11 @@
 
 <p>
   <strong>Length:</strong>
-  <%= @fabric.length %>
+  <% yards = @fabric.length / 36 %>
+  <% yard_percentage = (@fabric.length / 36).to_f %> 
+  whole yards: <%= yards %><br>
+  yards decimal: <%= yard_percentage %>
+
 </p>
 
 <p>
@@ -39,12 +43,21 @@
 </p>
 
 <p>
-<% if @fabric.swatch != nil %>
-    <%= image_tag @fabric.swatch_url.to_s %>
-  <% else %> 
-    <%= image_tag("default_swatch.jpg", alt: "default") %>
-    <% end %>
+  <%= image_tag @fabric.swatch_url.to_s %>
 </p>
+
+<%= link_to "delete", fabric_path(@fabric), method: :delete, data: {confirm: "Really delete this swatch?"} %>
+<br>
+<%= link_to "back to viewing all fabrics", fabrics_path %>
+
+<p>Date: <input type="text" id="datepicker"></p>
+
+ <script>
+      console.log("anus")
+      $(function() {
+        $( "#datepicker" ).datepicker();
+       });
+  </script>
 
 
  
