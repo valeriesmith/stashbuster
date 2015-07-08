@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class SwatchUploader < CarrierWave::Uploader::Base
+  after :remove, :delete_empty_upstream_dirs
 
   # set allowed file types
   def extension_white_list
@@ -22,12 +23,24 @@ class SwatchUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
+  def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+    ActionController::Base.helpers.asset_path("images/" + [version_name, "default_swatch.jpg"].compact.join('_'))
+  
+    "/images/" + [version_name, "default_swatch.jpg"].compact.join('_')
+  end
+
+  def delete_empty_upstream_dirs
+    path = ::File.expand_path(store_dir, root)
+    Dir.delete(path) # fails if path not empty dir
+
+    # path = ::File.expand_path(base_store_dir, root)
+    # Dir.delete(path) # fails if path not empty dir
+  rescue SystemCallError
+    true # nothing, the dir is not empty
+  end
+
+
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -39,12 +52,6 @@ class SwatchUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
-  # end
-
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
   # end
 
   # Override the filename of the uploaded files:

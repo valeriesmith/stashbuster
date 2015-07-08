@@ -1,0 +1,11 @@
+<h1>Viewing all Fabrics in your Collection</h1>
+
+<% if @fabrics.length <= 0 %>
+	<h2>You have no fabrics in your collection</h2><br>
+	<%= link_to "add a new fabric", new_fabric_path, class: "new_fabric" %>
+<% end %>
+
+	<% @fabrics.each do |fabric| %>
+		<li><%= link_to fabric.name, fabric_path(fabric) %></li>
+	<% end %>
+
