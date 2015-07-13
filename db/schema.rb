@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20150512011741) do
   create_table "fabrics", force: :cascade do |t|
     t.string   "name"
     t.string   "color"
-    t.integer  "length"
+    t.decimal  "length",     precision: 4, scale: 4
     t.integer  "width"
     t.integer  "price"
     t.string   "content"
     t.string   "swatch"
     t.string   "source"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "fabricstores", force: :cascade do |t|

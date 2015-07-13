@@ -18,7 +18,8 @@ class Fabric < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :color, presence: true
-	validates :length, presence: true, numericality: true
+	validates :length, presence: true
+	# validates :length, presence: true, numericality: true
 	validates :width, presence: true, numericality: true
 
 	validates :swatch, file_size: {maximum: 0.5.megabytes.to_i}
