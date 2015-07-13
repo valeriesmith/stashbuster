@@ -20,9 +20,9 @@
   </p>
 
 <p>
-  <%= f.label :length %><br>
+  <%= f.label :length %>
+  <%= f.text_field :length, :id => 'amount', :disabled => true, :class => 'slider' %>
   <div id="slider"></div>
-  <%= f.text_field :length, :id => 'amount', :value => 'anus' %>
   <!-- <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
 </p>
 
