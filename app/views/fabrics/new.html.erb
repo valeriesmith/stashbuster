@@ -21,16 +21,13 @@
 
 <p>
   <%= f.label :length %>
-  <%= f.text_field :length, :id => 'amount', :disabled => true, :class => 'slider' %>
+  <%= f.text_field :length, :id => 'amount', :class => 'slider' %>
   <div id="slider"></div>
-  <!-- <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
 </p>
 
-  <p>
-    <%= f.label :width %><br>
-    <%= f.text_field :width %>
-  </p>
-
+<p>
+  <%= f.select(:width, options_for_select([45, 60])) %>
+</p>
 
   <p>
     <%= f.label :price %><br>
@@ -58,7 +55,7 @@
 <% end %>
 
  <script>
-  $(function() {
+   $(function() {
     $( "#slider" ).slider({
       value: 0,
       min: .125,
@@ -70,7 +67,8 @@
     });
     $( "#amount" ).val($( "#slider" ).slider( "value" ) );
   });
-  </script>
+// lengthSlider()
+ </script>
 
 
 
