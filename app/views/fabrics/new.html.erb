@@ -23,7 +23,6 @@
   <%= f.label :length %>
   <%= f.text_field :length, :id => 'amount', :disabled => true, :class => 'slider' %>
   <div id="slider"></div>
-  <!-- <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
 </p>
 
   <p>
@@ -58,19 +57,8 @@
 <% end %>
 
  <script>
-  $(function() {
-    $( "#slider" ).slider({
-      value: 0,
-      min: .125,
-      max: 10,
-      step: .125,
-      slide: function( event, ui ) {
-        $( "#amount" ).val(ui.value );
-      }
-    });
-    $( "#amount" ).val($( "#slider" ).slider( "value" ) );
-  });
-  </script>
+lengthSlider()
+ </script>
 
 
 
