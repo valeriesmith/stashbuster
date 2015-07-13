@@ -25,10 +25,9 @@
   <div id="slider"></div>
 </p>
 
-  <p>
-    <%= f.label :width %><br>
-    <%= f.text_field :width %>
-  </p>
+<p>
+  <%= f.select(:width, options_for_select([45, 60])) %>
+</p>
 
   <p>
     <%= f.label :price %><br>
