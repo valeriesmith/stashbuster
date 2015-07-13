@@ -3,7 +3,7 @@ class CreateFabrics < ActiveRecord::Migration
     create_table :fabrics do |t|
       t.string :name
       t.string :color
-      t.integer :length
+      t.decimal :length, :precision => 4, :scale => 4
       t.integer :width
       t.integer :price
       t.string :content
