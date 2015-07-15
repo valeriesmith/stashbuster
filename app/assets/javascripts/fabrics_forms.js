@@ -1,6 +1,6 @@
-function lengthSlider() {
+function lengthSlider(currVal) {
   $("#slider").slider({
-    value: 0,
+    value: currVal,
     min: .125,
     max: 10,
     step: .125,

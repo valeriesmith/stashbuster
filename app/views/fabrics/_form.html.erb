@@ -61,6 +61,11 @@
   </p>
 <% end %>
 
- <script>
-  lengthSlider()
- </script>
+<% if @action = "action edit" %>
+  <script>
+  var length = '<%=@length%>'
+  lengthSlider(length)</script>  
+<% else %>
+    <script>lengthSlider(0.125)</script>
+<% end %>
+ 
