@@ -20,7 +20,8 @@
   </p>
 
 <p>
-  <%= f.label :length %>
+  <%= f.label :length %>:
+  <span id="slider_display">1/8</span>
   <%= f.text_field :length, :id => 'amount', :class => 'slider' %>
   <div id="slider"></div>
 </p>
@@ -55,20 +56,9 @@
 <% end %>
 
  <script>
-   $(function() {
-    $( "#slider" ).slider({
-      value: 0,
-      min: .125,
-      max: 10,
-      step: .125,
-      slide: function( event, ui ) {
-        $( "#amount" ).val(ui.value );
-      }
-    });
-    $( "#amount" ).val($( "#slider" ).slider( "value" ) );
-  });
-// lengthSlider()
+  lengthSlider()
  </script>
+
 
 
 
