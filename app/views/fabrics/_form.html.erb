@@ -1,0 +1,68 @@
+<% if @errors != nil %> 
+    <p>Please fix the following errors:</p>
+    <% @fabric.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
+<%= form_for :fabric, :html => {:multipart => true}, url: fabrics_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+    <p>
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </p>
+
+<p>
+  <%= f.label :length %>:
+  <% if @action == "edit" %>
+    <span id="slider_display"><%= @yardage %></span>
+    <!-- this is the same in both cases -->
+      <%= f.text_field :length, :id => 'amount', :class => 'slider' %>
+      <div id="slider"></div><br>
+      <%= f.label :width %>:
+      <%= f.select(:width, options_for_select([45, 60], :selected => @width)) %>
+      <script>
+      var length = '<%=@length%>'
+      lengthSlider(length)</script>  
+  <% else %>
+    <span id="slider_display">1/8</span>
+     <%= f.text_field :length, :id => 'amount', :class => 'slider' %>
+      <div id="slider"></div><br>
+      <%= f.label :width %>:
+       <%= f.select(:width, options_for_select([45, 60])) %>
+  <% end %>
+
+</p>
+
+
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </p>
+
+  <h2>Upload an image of your fabric, or skip this step for now</h2>
+  <p>
+    <%= f.file_field :swatch %>
+  </p> 
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+ 

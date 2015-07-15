@@ -45,18 +45,14 @@
   <%= image_tag @fabric.swatch_url.to_s %>
 </p>
 
+<%= link_to "edit", edit_fabric_path(@fabric) %>
+
 <%= link_to "delete", fabric_path(@fabric), method: :delete, data: {confirm: "Really delete this swatch?"} %>
 <br>
 <%= link_to "back to viewing all fabrics", fabrics_path %>
 
-<p>Date: <input type="text" id="datepicker"></p>
 
- <script>
-      console.log("anus")
-      $(function() {
-        $( "#datepicker" ).datepicker();
-       });
-  </script>
+
 
 
  
