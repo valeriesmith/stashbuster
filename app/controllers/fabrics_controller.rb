@@ -5,6 +5,8 @@ class FabricsController < ApplicationController
 
 	def show
 		@fabric = Fabric.find(params[:id])
+		p "FABRIC LENGTH"
+		p @fabric.length
 		conversions = {
 			'1/8' => 0.125,
 			'1/4' => 0.25,
@@ -17,6 +19,7 @@ class FabricsController < ApplicationController
 		if @fabric.length < 1
 			@yardage = conversions.key(@fabric.length)
 		else
+
 	 		@whole_yards = @fabric.length.floor
 	 		@partial_yards = conversions.key(@fabric.length - @fabric.length.to_i)
 	 		@yardage = @whole_yards.to_s << " " << @partial_yards.to_s
