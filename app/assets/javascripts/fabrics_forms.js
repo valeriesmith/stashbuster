@@ -25,3 +25,7 @@ function lengthSlider() {
       return yardage;
     }   
    }
+
+   function whichAction(action) {
+      console.log(action);
+   }
