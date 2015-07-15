@@ -18,17 +18,21 @@
 
 <p>
   <%= f.label :length %>:
-  <% if @action = "action edit" %>
+  <% if @action == "edit" %>
+    <% p "FOOBUTT" %>
     <span id="slider_display"><%= @yardage %></span>
   <% else %>
-    <span id="slider_display">1/8</span>
+  <% p @action %>
+
+  BLAHALAH
+    <span id="slider_display">FOOOFOOFFOOFO</span>
   <% end %>
   <%= f.text_field :length, :id => 'amount', :class => 'slider' %>
   <div id="slider"></div>
 </p>
 
 <p>
-  <% if @action = "action edit" %>
+  <% if @action == "edit" %>
     <%= f.select(:width, options_for_select([45, 60], :selected => @width)) %>
     <% else %>
       <%= f.select(:width, options_for_select([45, 60])) %>
@@ -61,7 +65,7 @@
   </p>
 <% end %>
 
-<% if @action = "action edit" %>
+<% if @action == "edit" %>
   <script>
   var length = '<%=@length%>'
   lengthSlider(length)</script>  
