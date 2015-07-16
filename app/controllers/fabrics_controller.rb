@@ -1,4 +1,6 @@
 class FabricsController < ApplicationController
+
+	include FabricsHelper
 	
 	def yardage_calc(length)
 		conversions = {
@@ -61,9 +63,6 @@ class FabricsController < ApplicationController
 		@action = params[:action]
 		@length = @fabric.length
 		@width = @fabric.width
-		p "action #{@action}"
-		p "LENGTH #{@yardage}"
-		p "WIDTH #{@fabric.width}"
 	end
 
 	def update
@@ -75,14 +74,6 @@ class FabricsController < ApplicationController
 		redirect_to @fabric
 	end
 
-
-
-
-	private
-
-		def fabric_params
-			params.require(:fabric) .permit(:name,:color,:length,:width,:price,:content,:source,:swatch)
-		end
 
 end
 
