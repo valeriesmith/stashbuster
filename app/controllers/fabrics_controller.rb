@@ -32,7 +32,7 @@ class FabricsController < ApplicationController
 	end
 
 	def new
-		@fabrics = Fabric.all
+		@fabrics = Fabric.new
 	end
 
 	def create

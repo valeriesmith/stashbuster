@@ -1,12 +1,63 @@
 class UsersController < ApplicationController
+
+	include UsersHelper
+	
+	def index
+		@users = User.all
+	end
+
+	def show
+		@user = User.find(params[:id])
+	end
+
 	def new
+		@user = User.new
 	end
 
 	def create
-		render plain: params[:article].inspect
+		# @errors = nil
+		p "PARAMS"
+		p params
+		@user = User.new(user_params)
+		if @user.save
+			session[:user_id] = @user.id
+			
+			flash.notice = "User #{@user.username} Created!"
+
+			redirect_to '/'
+			
+		else
+			# @errors = @user.errors
+			# render "new"	
+			redirect_to '/signup'	
+		end
 	end
 
+	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+		flash.notice = "User #{@user.name}' Destroyed!"
+
+		redirect_to action: "index"
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+		@user.update(user_params)
+
+		flash.notice = "User #{@user.name} updated!"
+
+		redirect_to @user
+	end
+
+
 end
+
+
 
 # require 'bcrypt'
 
