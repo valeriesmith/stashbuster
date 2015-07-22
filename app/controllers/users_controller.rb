@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	include UsersHelper
 	
 	def index
-		@users = User.all
+		@users = User.all	
 	end
 
 	def show
@@ -16,8 +16,6 @@ class UsersController < ApplicationController
 
 	def create
 		# @errors = nil
-		p "PARAMS"
-		p params
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
@@ -28,7 +26,8 @@ class UsersController < ApplicationController
 			
 		else
 			# @errors = @user.errors
-			# render "new"	
+			# render "new"
+			flash.notice = "User #{@user.username} not created!"
 			redirect_to '/signup'	
 		end
 	end
