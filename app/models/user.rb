@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_secure_password
+	
 	# many to many
 	has_many :fabricstores
 	has_many :patternstores

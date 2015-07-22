@@ -34,10 +34,12 @@
       <div id="slider"></div><br>
       <%= f.label :width %>:
        <%= f.select(:width, options_for_select([45, 60])) %>
+       <script>
+      var length = '<%=@length%>'
+      lengthSlider(0.125)</script>  
   <% end %>
 
 </p>
-
 
   <p>
     <%= f.label :price %><br>

@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<p class="flash"><%= flash.notice %></p>
+
+<% if current_user %>
+  Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+<% else %>
+  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
+
+
 <%= yield %>
 
 </body>
