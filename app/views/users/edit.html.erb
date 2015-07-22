@@ -1,3 +1,48 @@
 <h1>Edit my Information</h1>
+<p>the user id</p>
+<%= @user.id %>
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+  
+  <p>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </p>
 
-<%= render partial: 'form' %>
+
+  <p>
+   <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+
+   <p>
+   <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </p>
+ 
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password %> again<br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+
+<!-- TO DO:  birthday only month and day -->
+<!-- make file uploader for avatar -->
+
+<p><%= f.submit %></p>
+
+<% end %>

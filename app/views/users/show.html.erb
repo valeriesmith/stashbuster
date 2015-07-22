@@ -5,11 +5,16 @@
 </p>
 
 <p>
+  <strong>Location:</strong>
+  <%= @user.location %>
+</p>
+
+
+<p>
   <%#= image_tag @fabric.swatch_url.to_s %>
 </p>
 
 
-
-
+<%= link_to "edit", edit_user_path(@user) %>
 
 

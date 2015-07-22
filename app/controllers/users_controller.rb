@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		p "IN CREATE ACTION"
 		# @errors = nil
 		@user = User.new(user_params)
 		if @user.save
@@ -42,15 +43,20 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		p "USER IN EDIT ACTION"
+		p @user.id
 	end
 
 	def update
-		@user = User.find(params[:id])
+		p "IN update ACTION"
+
+		@user = User.find_by_id(params[:id])
+		# @user = User.find(params[:id])
 		@user.update(user_params)
 
-		flash.notice = "User #{@user.name} updated!"
+		flash.notice = "User #{@user.username} updated!"
 
-		redirect_to @user
+		redirect_to user_path(@user)
 	end
 
 
