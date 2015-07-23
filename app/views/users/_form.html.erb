@@ -1,5 +1,5 @@
-<%= form_for :user, :html => {:multipart => true}, url: users_path do |f| %>
-  
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+
   <p>
     <%= f.label :username %><br>
     <%= f.text_field :username %>
