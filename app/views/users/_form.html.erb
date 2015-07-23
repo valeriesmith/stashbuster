@@ -36,7 +36,13 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
-  <h2>Upload an image of yourself, or skip this step for now</h2>
+  <% if current_user %>
+    <%= image_tag @user.avatar_url(:thumb).to_s %>
+    <h2>Change uploaded image</h2>
+  <% else %>
+    <h2>Upload an image of yourself, or skip this step for now</h2>
+  <% end %>
+  
   <p>
     <%= f.file_field :avatar %>
   </p> 
