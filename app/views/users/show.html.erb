@@ -9,12 +9,13 @@
   <%= @user.location %>
 </p>
 
-
 <p>
-  <%#= image_tag @fabric.swatch_url.to_s %>
+  <%= image_tag @user.avatar_url(:thumb).to_s %>
 </p>
 
 
 <%= link_to "edit", edit_user_path(@user) %>
+<br>
+<%= link_to "delete my account", user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %>
 
 

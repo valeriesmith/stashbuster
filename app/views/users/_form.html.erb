@@ -1,5 +1,5 @@
-<%= form_for :user, :html => {:multipart => true}, url: users_path do |f| %>
-  
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+
   <p>
     <%= f.label :username %><br>
     <%= f.text_field :username %>
@@ -36,9 +36,25 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
+  <% if current_user %>
+    <%= image_tag @user.avatar_url(:thumb).to_s %>
+    <h2>Change uploaded image</h2>
+  <% else %>
+    <h2>Upload an image of yourself, or skip this step for now</h2>
+  <% end %>
+  
+  <p>
+    <%= f.file_field :avatar %>
+  </p> 
+
+  <p>
+    <%= f.label :remote_avatar_url, "or image URL:" %><br>
+    <%= f.text_field :remote_avatar_url %>
+  </p>
+
+
 
 <!-- TO DO:  birthday only month and day -->
-<!-- make file uploader for avatar -->
 
 <p><%= f.submit %></p>
 

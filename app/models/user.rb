@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
 	# one to many
 	has_many :projects
 	has_many :plans
+
+	mount_uploader :avatar, AvatarUploader
 	
 end
