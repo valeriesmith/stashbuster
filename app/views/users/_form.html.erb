@@ -36,9 +36,19 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
+  <h2>Upload an image of yourself, or skip this step for now</h2>
+  <p>
+    <%= f.file_field :avatar %>
+  </p> 
+
+  <p>
+    <%= f.label :remote_avatar_url, "or image URL:" %><br>
+    <%= f.text_field :remote_avatar_url %>
+  </p>
+
+
 
 <!-- TO DO:  birthday only month and day -->
-<!-- make file uploader for avatar -->
 
 <p><%= f.submit %></p>
 
