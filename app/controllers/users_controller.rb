@@ -15,15 +15,30 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		p "IN CREATE ACTION"
 		# @errors = nil
+		# params[:admin] = false
+		# p "USER ADMIN SETTING BEFORE SAVE"
+		# p params[:admin]
 		@user = User.new(user_params)
+		# user_params[:admin] = false
+		# p user_params[:admin]
+		@user.admin = false
 		if @user.save
 			session[:user_id] = @user.id
+			# p "USER ADMIN SETTING IN SAVE"
+			# p user_params[:admin]
+			p "@user.admin"
+			p @user.admin
+			p "@user.username"
+			p @user.username
+
 			
 			flash.notice = "User #{@user.username} Created!"
 
+
 			redirect_to '/'
+
+
 			
 		else
 			# @errors = @user.errors

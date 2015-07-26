@@ -16,6 +16,13 @@
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
 
+<% if current_user && current_user.admin == true %>
+   | <%= link_to 'Admin Page'%>
+<% end %>
+
+
+
+
 
 <%= yield %>
 
