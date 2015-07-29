@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :location
       t.string :avatar
+      t.boolean :admin
 
       t.timestamps null: false
     end

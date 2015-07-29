@@ -1,6 +1,8 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
 
 	include UsersHelper
+
+	before_filter :check_admin
 	
 	def index
 		@users = User.all	
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	# to do - set as admin
 	def create
 		@user = User.new(user_params)
 
@@ -54,7 +57,4 @@ class UsersController < ApplicationController
 
 		redirect_to user_path(@user)
 	end
-
-
 end
-

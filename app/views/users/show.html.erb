@@ -10,6 +10,17 @@
 </p>
 
 <p>
+  <strong>Admin?</strong>
+  <% if @user.admin == true %>
+ 	 <p>yes</p>
+  <% else %>
+  	<p>no</p>
+  <% end %>
+</p>
+
+
+
+<p>
   <%= image_tag @user.avatar_url(:thumb).to_s %>
 </p>
 

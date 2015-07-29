@@ -1,0 +1,13 @@
+
+<h1>Stashbuster</h1>
+
+<h2>Admin Page</h2>
+
+<ol>
+<% @users.each do |user| %>
+	<li><%= user.username %>
+		<% if user.admin == true %>
+			(admin)		
+		<% end %>
+<% end %>
+

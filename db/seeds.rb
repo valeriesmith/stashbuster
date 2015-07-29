@@ -9,7 +9,7 @@ patterns = Pattern.create([{company: 'Colette', category: 'top', size: 'multi'},
 
 # seed data for users
 
-users = User.create([{username: 'valerie', email: 'vcgsmith2015@gmail.com', password: 'boom'}, {username: 'benoit', email: 'little_yapper@woof.com', password: 'boom'}, {username: 'ian', email: 'iansmithmac@mac.com', password: 'boom'}])
+users = User.create([{username: 'valerie', email: 'vcgsmith2015@gmail.com', password: 'boom', admin: true}, {username: 'benoit', email: 'little_yapper@woof.com', password: 'boom'}, {username: 'ian', email: 'iansmithmac@mac.com', password: 'boom'}])
 
 users.each do |i|
 	fabrics.each do |j|
