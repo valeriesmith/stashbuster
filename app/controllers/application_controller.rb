@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+    # Render 404 page when record not found
+  def render_404      
+    render :file => "/public/404.html", :status => 404
+  end
+
   def current_user
     	@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -27,4 +33,14 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+
+    def check_user
+      @user = User.find(params[:id])
+      unless (User.find(session[:user_id])).id == @user.id
+        flash.notice = "you are an asshole"
+        redirect_to '/' 
+      end
+    end
+ 
 end
