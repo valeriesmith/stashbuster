@@ -20,27 +20,34 @@ class ApplicationController < ActionController::Base
       redirect_to '/login' unless current_user
     end
 
+    def admin?
+      if (User.find(session[:user_id]).admin) == true
+        return true
+      else
+        return false
+      end
+    end
 
-    def check_admin
+    def block_non_admin
       unless current_user 
         flash.notice = "you must be logged in as admin to see these pages"
         redirect_to '/'
       else
-        @user = User.find(session[:user_id])
-        unless @user.admin == true
+        unless admin? == true
           redirect_to '/' 
           flash.notice = "you are an asshole"
         end
       end
     end
 
-
     def check_user
       @user = User.find(params[:id])
-      unless (User.find(session[:user_id])).id == @user.id
-        flash.notice = "you are an asshole"
+      @session = User.find(session[:user_id])
+      unless @session.id == @user.id || admin? == true
+        flash.notice = "not your page!"
         redirect_to '/' 
       end
     end
- 
+
+
 end
