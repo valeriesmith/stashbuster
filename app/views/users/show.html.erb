@@ -19,11 +19,17 @@
   <% end %>
 </p>
 
-
-
 <p>
   <%= image_tag @user.avatar_url(:thumb).to_s %>
 </p>
+
+<h3>Newest Fabrics:</h3>
+<ul>
+<% @user.fabrics.each do |fabric| %>
+<li><%= image_tag fabric.swatch_url(:thumb).to_s %></li>
+<% end %>
+</ul>
+
 
 
 <%= link_to "edit", edit_user_path(@user) %>

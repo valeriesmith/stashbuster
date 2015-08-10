@@ -42,7 +42,7 @@
 </p>
 
 <p>
-  <%= image_tag @fabric.swatch_url.to_s %>
+  <%= image_tag @fabric.swatch_url(:standard).to_s %>
 </p>
 
 <%= link_to "edit", edit_fabric_path(@fabric) %>
