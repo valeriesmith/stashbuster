@@ -5,7 +5,7 @@
   <% end %>
 <% end %>
 
-<%= form_for :fabric, :html => {:multipart => true}, url: fabrics_path do |f| %>
+<%= form_for(@fabric, html: {multipart: true}) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

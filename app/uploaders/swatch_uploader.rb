@@ -9,7 +9,7 @@ class SwatchUploader < CarrierWave::Uploader::Base
   end
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -50,9 +50,17 @@ class SwatchUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    p "IN THUMB PROCESS"
+    process :resize_to_fit => [50, 50]
+  end
+
+  version :standard do
+    p "IN STANDARD PROCESS"
+    process :resize_to_fill => [150, 150]
+  end
+
+ 
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
