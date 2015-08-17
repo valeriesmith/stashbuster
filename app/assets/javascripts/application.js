@@ -14,6 +14,13 @@
 //= require jquery-ui.min
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap-sprockets
 
 // = require fabrics_forms.js
+
+//= require_tree .
+
+
+
+
+
