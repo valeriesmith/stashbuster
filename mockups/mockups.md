@@ -18,26 +18,26 @@ A link to Sign Up and Login will also be part of the standard page layout on all
 
 ![Sign Up](imgs/Signup.png "Sign Up")
 
-![Log In](https://github.com/valeriegsmith/mockups/imgs/Login.png "Log In")
+![Log In](imgs/Login.png "Log In")
 
 ###Profile Page###
 
 Users can upload an avatar, select geographical location, or change password.  The administrator has access to all other user pages but if a user tries to access an account not his/her own by changing the URL, it redirects back to login.
 
-![Profile Page](https://github.com/valeriegsmith/mockups/imgs/Profile_Settings.png "Profile Page")
+![Profile Page](imgs/Profile_Settings.png "Profile Page")
 
 ###Dashboard###
 
 This is the landing page for users who are logged in. Users will be able to choose what elements of this page to share with friends or other app users.  This page contains previews of recently completed projects, recently acquired fabric and patterns, social activity, time spent sewing, and fabric used vs fabric acquired.
 
-![Dashboard](https://github.com/valeriegsmith/mockups/imgs/Dashboard.png "Dashboard")
+![Dashboard](imgs/Dashboard.png "Dashboard")
 
 ##To come:##
 
-Gallery Page
-Fabric/Pattern Detail Page
-Project Page
-Comments (disqus?)
-Friends/Social
+-Gallery Page  
+-Fabric/Pattern Detail Page  
+-Project Page  
+-Comments (disqus?)  
+-Friends/Social
 
 
