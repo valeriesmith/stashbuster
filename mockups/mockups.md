@@ -16,7 +16,7 @@ This is the landing page for users who are new or not logged in.  Simple, standa
 
 A link to Sign Up and Login will also be part of the standard page layout on all public pages. If there is an active session, a link to Log out appears instead.
 
-![Sign Up](imgs/Signup.png "Sign Up")
+![Sign Up](imgs/Signup.png "Sign Up"  =500x)
 
 ![Log In](imgs/Login.png "Log In")
 
