@@ -32,12 +32,11 @@ This is the landing page for users who are logged in. Users will be able to choo
 
 ![Dashboard](imgs/Dashboard.png "Dashboard")
 
-##To come:##
+##TO DO:##
 
--Gallery Page  
--Fabric/Pattern Detail Page  
--Project Page  
--Comments (disqus?)  
--Friends/Social
+-Gallery Page.  This page will provide a gallery view of patterns and fabrics.  Include ability to sort by fabric type, color, and pattern type.   
+-Fabric/Pattern Detail Page.  Provides detail page (by ID) of fabric and pattern.  Include ability to match fabric to appropriate pattern.  
+-Project Page.  Details about current and/or planned projects. Include hours spent, notes on process, sharing.  Ability to sort by status of project.   
+-Friends/Social.  Ability to friend people, comment (use Disqus API?), direct message, and to see who is working on the same types of projects as user.  
 
 
