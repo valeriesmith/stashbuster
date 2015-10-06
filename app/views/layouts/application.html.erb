@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stashbuster</title>
+   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,60 +11,24 @@
 
 <p class="flash"><%= flash.notice %></p>
 
-
-<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h1 class="text-center">Login</h1>
-      </div>
-      <div class="modal-body">
-          <!-- <form class="form col-md-12 center-block"> -->
-          <%= form_tag '/login', ({:class => "form col-md-12 center-block"}) do %>
-            <div class="form-group">
-              <!-- <input type="text" class="form-control input-lg" placeholder="Email"> -->
-              <%= text_field_tag :email, nil, :class => "form-control input-lg", :placeholder => "Email" %>
-
-            </div>
-            <div class="form-group">
-            <%= password_field_tag :password, nil, :class => "form-control input-lg", :placeholder => "Password" %>
-            </div>
-            <div class="form-group">
-            <%= submit_tag "Sign In", :class => "btn btn-primary btn-lg btn-block" %>
-              <!-- <button class="btn btn-primary btn-lg btn-block">Sign In</button> -->
-              <% end %>
-              <span class="pull-right"><a href="#">Register</a></span>
-              <!-- <span><a href="#">Need help?</a></span> -->
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-          <div class="col-md-12">
-          <button class="btn"  data-dismiss="modal" aria-hidden="true">Cancel</button>
-  </div>
-      </div>
-  </div>
-  </div>
-</div>
-
-
-
+<%= render partial: '/shared/loginModal' %>
+<%= render partial: '/shared/signupModal' %>
 
 <% if current_user %>
   Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
 <% else %>
-try this<%= link_to 'Login', :data => {:toggle => "modal", :target => "#loginModal"} %>
-<br>
-<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-
+<div class="btn-group inline">
+ <button id="anus" class="btn btn-link" data-toggle="modal" data-target="#loginModal" %>
+    Login</button>
+ <button class="btn btn-link" data-toggle="modal" data-target="#signupModal" %>
+    Sign Up
+  </button>
+</div>
 <% end %>
 
 <% if current_user && current_user.admin == true %>
    | <%= link_to 'Admin Page', '/admin/users' %>
 <% end %>
-
-
 
 
 
