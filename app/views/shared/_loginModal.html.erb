@@ -1,0 +1,51 @@
+kl;k;lk;lkl;k;k;l
+
+<!-- begin modal -->
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="false"> 
+
+  <div class="modal-dialog">   
+    <div class="modal-content">     
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false">×</button>
+        <h1 class="text-center">Login</h1>
+      <!-- end modal-header div -->
+      </div>
+
+      <div class="modal-body"> 
+        <%= form_for '/login', remote: true, html: {:class => "form col-md-12 center-block"} do %>
+
+          <div class="form-group">
+            <%= text_field_tag :email, nil, :class => "form-control input-lg", :placeholder => "Email" %>
+          </div>
+
+          <div class="form-group">
+            <%= password_field_tag :password, nil, :class => "form-control input-lg", :placeholder => "Password" %>
+          </div> 
+
+          <div class="form-group">
+            <%= submit_tag "Sign In", :class => "btn btn-primary btn-lg btn-block" %>
+          </div>
+
+        <% end %>
+
+        <span class="pull-right"><a href="#">Register</a></span>
+        
+      
+    <!-- end modal-content div-->
+    </div>
+
+    <div class="modal-footer">
+      <div class="col-md-12">
+        <button class="btn"  data-dismiss="modal" aria-hidden="true">Cancel</button>
+      </div>
+    </div>
+
+  <!-- end modal-body div -->
+  </div>
+<!-- end modal-dialog div -->
+</div>
+<!-- end loginModal div -->
+</div>
+
+<!-- end modal -->
